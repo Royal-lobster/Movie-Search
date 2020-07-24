@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/design.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <!-- heading of the movie searched -->
+    <h1 id="searchHeading">Search Result <span style="color: grey;">></span> AVENGERS</h1>
+    <!-- list of movies searched for -->
+    <% data["results"].forEach((movie)=>{ %>
+        <!-- tamplate card -->
+        <div class="card mb-5 w-75">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2<%=movie["poster_path"] %>" alt="Image not found in the database" class="card-img img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title"><%= movie["original_title"] %></h2>
+                        <hr>
+                        <p class="card-text"><%= movie["overview"] %></p>
+                        <hr>
+                        <br>
+                        <p class="card-text"><b>Date Published:</b><%= movie["release_date"] %></p>
+                        <p class="card-text"><b>Total Votes:</b><%= movie["vote_count"] %></p>
+                        <p class="card-text"><b>Average Ratings:</b><%= movie["vote_average"] %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- tamplate card end -->
+    <% }) %>
+
+</body>
+</html>
